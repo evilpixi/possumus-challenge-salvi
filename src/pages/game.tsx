@@ -5,6 +5,8 @@ import Loader from '../components/loader';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { Difficulties } from '../enums/difficulties';
+import { Question } from '../dto/question';
+import he from 'he';
 
 const BASE_URL = 'https://opentdb.com/api.php?amount=5&type=multiple';
 
@@ -12,8 +14,8 @@ const Game: React.FC = () =>
 {
   const [isLoaded, setIsLoaded] = useState(false);
   const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [matchedAnswers, setMatchedAnswers] = useState([]);
+  //const [currentQuestion, setCurrentQuestion] = useState(0);
+  //const [matchedAnswers, setMatchedAnswers] = useState([]);
   const [gameQuery, setGameQuery] = useState(BASE_URL);
 
   const category = useSelector((state: RootState) => state.currentCategory.currentCategory);
@@ -28,6 +30,7 @@ const Game: React.FC = () =>
     console.log('difficulty:', difficulty)
 
     console.log(query)
+    console.log(he)
     setGameQuery(query)
 
     axios.get(query)
@@ -49,12 +52,12 @@ const Game: React.FC = () =>
         ? <div>
           <h1>Game</h1>
           {gameQuery}
-          {questions.map((question: any, index: number) =>
+          {questions.map((question: Question, index: number) =>
           {
             return (
               <div key={index}>
-                <h2>{question.question}</h2>
-                {question.question}
+                <h2>{he.decode(question.question)}</h2>
+                {he.decode(question.question)}
               </div>
             )
           })}
