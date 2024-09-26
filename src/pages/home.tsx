@@ -4,7 +4,7 @@ import { RootState } from '../store';
 import { HomeStatus } from '../enums/homeStatusEnum'
 import HomeCategorySelectionPanel from '../components/homeCategorySelectPanel';
 import HomeSplashArtPanel from '../components/homeSplashArtPanel';
-import DificultySelectionPanel from '../components/difficultySelectionPanel';
+import DificultySelectionPanel from '../components/difficultySelectionanel';
 
 
 // Home component
