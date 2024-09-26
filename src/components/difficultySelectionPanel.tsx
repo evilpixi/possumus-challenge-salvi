@@ -1,14 +1,29 @@
 import React from 'react';
+import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Difficulties } from '../enums/difficulties';
 import { setDifficulty } from '../features/difficultySlice';
-import { RootState } from '../store';
+import { setHomeStatus } from '../features/homeStatusSlice';
+import { HomeStatus } from '../enums/homeStatusEnum';
+import { useNavigate } from 'react-router-dom';
+
 
 const DifficultySelectionPanel: React.FC = () =>
 {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const difficulty = useSelector((state: RootState) => state.currentDifficulty.selectedDifficult);
+
+  const handleGoBack = () =>
+  {
+    dispatch(setHomeStatus(HomeStatus.CategorySelection));
+  }
+
+  const handlePlay = () =>
+  {
+    navigate('/game');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
   {
@@ -26,7 +41,8 @@ const DifficultySelectionPanel: React.FC = () =>
       </select>
       <p>Selected Difficulty: {difficulty}</p>
 
-      <button onClick={() => { }}>PLAY</button>
+      <button onClick={handleGoBack}>BACK</button>
+      <button onClick={handlePlay}>PLAY</button>
     </div>
   );
 };

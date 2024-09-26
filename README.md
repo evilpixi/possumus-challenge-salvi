@@ -1,5 +1,8 @@
 # React + TypeScript + Vite
 
+connect to
+[https://opentdb.com/api_config.php](https://opentdb.com/api_config.php)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

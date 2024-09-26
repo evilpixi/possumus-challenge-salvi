@@ -4,6 +4,10 @@ import axios from 'axios';
 import { Category } from '../dto/category';
 import { useState, useEffect } from 'react';
 
+import { useDispatch } from 'react-redux';
+import { setHomeStatus } from '../features/homeStatusSlice';
+import { HomeStatus } from '../enums/homeStatusEnum';
+
 import Loader from './loader';
 import CategoryList from './categoryList';
 
@@ -12,6 +16,12 @@ import CategoryList from './categoryList';
 const HomeCategorySelectionPanel: React.FC = () =>
 {
   const [categories, setCategories] = useState<Category[]>([]);
+  const dispatch = useDispatch();
+
+  const handleGoBack = () =>
+  {
+    dispatch(setHomeStatus(HomeStatus.SplashArt));
+  }
 
   useEffect(() =>
   {
@@ -38,10 +48,7 @@ const HomeCategorySelectionPanel: React.FC = () =>
         </div>
         : <div>
           <CategoryList categories={categories} />
-          <button onClick={() =>
-          {
-            window.location.href = '/';
-          }}>Back</button>
+          <button onClick={() => handleGoBack()}>Back</button>
         </div>}
     </div>
   );
