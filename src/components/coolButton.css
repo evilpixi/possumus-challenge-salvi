@@ -1,0 +1,27 @@
+.cool-button {
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 40%);
+  font-family: 'bebas neue', sans-serif;
+  border: none;
+  color: var(--dark-color);
+  padding: 20px 32px;
+  text-align: center;
+  font-size: 48px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 4px var(--dark-color);
+  transition: all 0.1s ease;
+  width: 100%;
+}
+
+.cool-button:hover {
+  background: linear-gradient(180deg, var(--primary-color) 50%, var(--secondary-color) 100%);
+  box-shadow: 0 6px var(--dark-color);
+  transform: translateY(-3px);
+}
+
+.cool-button:active {
+  background: linear-gradient(180deg, var(--secondary-color) 50%, var(--bg-color) 100%);
+  box-shadow: 0 2px var(--dark-color);
+  transform: translateY(2px);
+}

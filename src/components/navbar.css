@@ -1,12 +1,14 @@
-/* navbar.css */
-
 .navbar {
-  background-color: #333;
+  background: linear-gradient(180deg, var(--bg-color) 0%, var(--dark-color) 100%);
   overflow: hidden;
   display: flex;
   padding-left: 20px;
   padding-right: 10px;
   height: 48px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-brand {
@@ -15,7 +17,7 @@
   flex-wrap: wrap;
   font-weight: 600;
   font-size: larger;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 0, 0, 0.24));
+  background: var(--secondary-color);
 }
 
 .navbar a {
@@ -34,7 +36,7 @@
 }
 
 .navbar a:hover {
-  background-color: #ddd;
+  background-color: var(--primary-color);
   color: black;
 }
 

@@ -5,6 +5,7 @@ import { HomeStatus } from '../enums/homeStatusEnum'
 import HomeCategorySelectionPanel from '../components/homeCategorySelectPanel';
 import HomeSplashArtPanel from '../components/homeSplashArtPanel';
 import DificultySelectionPanel from '../components/difficultySelectionPanel';
+import '../App.css';
 
 
 // Home component
@@ -12,7 +13,7 @@ const Home: React.FC = () =>
 {
   const homeStatus = useSelector((state: RootState) => state.homeStatus.homeStatus);
 
-  return (< div >
+  return (< div className="view">
     {
       homeStatus === HomeStatus.SplashArt &&
       <HomeSplashArtPanel />

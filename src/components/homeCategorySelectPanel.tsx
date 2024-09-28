@@ -1,5 +1,4 @@
 import React from 'react';
-import './playButton.css';
 import axios from 'axios';
 import { Category } from '../dto/category';
 import { useState, useEffect } from 'react';
@@ -10,6 +9,8 @@ import { HomeStatus } from '../enums/homeStatusEnum';
 
 import Loader from './loader';
 import CategoryList from './categoryList';
+
+import './homeCategorySelectPanel.css';
 
 
 
@@ -42,7 +43,7 @@ const HomeCategorySelectionPanel: React.FC = () =>
   return (
     <div>
       {categories.length === 0
-        ? <div>
+        ? <div className="loading">
           loading categories...
           <Loader />
         </div>

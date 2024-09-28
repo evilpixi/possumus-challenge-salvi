@@ -12,7 +12,7 @@ const App: React.FC = () =>
 
   return (
     <BrowserRouter>
-      <div>
+      <div className={"app"}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

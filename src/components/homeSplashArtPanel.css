@@ -1,0 +1,39 @@
+.home {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.main-title {
+  font-size: 8vh;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'bebas neue', sans-serif;
+  background: linear-gradient(180deg, var(--light-color) 30%, var(--secondary-color) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.big-play-button {
+  font-size: 24px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.big-play-button:hover {
+  background-color: #45a049;
+}

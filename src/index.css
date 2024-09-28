@@ -2,3 +2,14 @@ body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --primary-color: #fdb750;
+  --secondary-color: #fd7f20;
+  --dark-color: #570909;
+  --bg-color: #fc2e20;
+  --light-color: #FFFFFF;
+
+  --success-color: #1afc22;
+  --error-color: #d0150b;
+}

@@ -1,0 +1,26 @@
+.title {
+  margin-top: 60px;
+  font-size: 6vh;
+  margin-bottom: 1rem;
+  font-weight: 100;
+  font-family: 'bebas neue', sans-serif;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  gap: 4px;
+}

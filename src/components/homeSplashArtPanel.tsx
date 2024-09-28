@@ -2,8 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setHomeStatus } from '../features/homeStatusSlice';
 import { HomeStatus } from '../enums/homeStatusEnum';
+import CoolButton from './coolButton';
 
-import './playButton.css';
+import './homeSplashArtPanel.css'
 
 const HomeSplashArtPanel: React.FC = () =>
 {
@@ -15,9 +16,9 @@ const HomeSplashArtPanel: React.FC = () =>
   };
 
   return (
-    <div>
-      <h2>The trivia for you and your friends</h2>
-      <button className="big-button" onClick={handleStart}>Play!</button>
+    <div className="home">
+      <h1 className="main-title">PIXI TRIVIA</h1>
+      <CoolButton onClick={handleStart} text={"PLAY"} />
     </div>
   );
 };

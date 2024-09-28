@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { setCurrentCategory } from '../features/currentCategorySlice';
 import { setHomeStatus } from '../features/homeStatusSlice';
 import { HomeStatus } from '../enums/homeStatusEnum';
+import CategoryButton from './categoryButton';
+import './homeCategorySelectPanel.css';
 
 interface CategoryListProps
 {
@@ -23,12 +25,15 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories }) =>
 
   return (
     <div>
-      <h2>Choose a category</h2>
-      <ul>
+      <h2 className='title'>Choose a category</h2>
+      <ul className='category-list'>
         {categories.map((category) => (
-          <div key={category.id}>
-            <button onClick={() => handleCategorySelect(category.id)}>{category.name}</button>
-          </div>
+
+          <CategoryButton
+            key={category.id}
+            text={category.name}
+            onClick={() => handleCategorySelect(category.id)}
+          />
         ))}
         <div key={-1}>
           <button onClick={() => handleCategorySelect(null)}>All!</button>
