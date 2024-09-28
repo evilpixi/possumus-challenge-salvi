@@ -2,43 +2,56 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Loader from '../components/loader';
-import { useSelector } from 'react-redux';
+import GameStatusPanel from '../components/gameStatusPanel';
+import CurrentQuestionPanel from '../components/currentQuestionPanel';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { Difficulties } from '../enums/difficulties';
 import { Question } from '../dto/question';
 import he from 'he';
+import gc from '../gameconfig';
+import { resetGame, setQuestions } from '../features/gameSlice';
 
-const BASE_URL = 'https://opentdb.com/api.php?amount=5&type=multiple';
+const BASE_URL = `https://opentdb.com/api.php?amount=${gc.amount}&type=${gc.type}`;
 
 const Game: React.FC = () =>
 {
+  const dispatch = useDispatch();
+
   const [isLoaded, setIsLoaded] = useState(false);
-  const [questions, setQuestions] = useState([]);
-  //const [currentQuestion, setCurrentQuestion] = useState(0);
-  //const [matchedAnswers, setMatchedAnswers] = useState([]);
   const [gameQuery, setGameQuery] = useState(BASE_URL);
 
   const category = useSelector((state: RootState) => state.currentCategory.currentCategory);
   const difficulty = useSelector((state: RootState) => state.currentDifficulty.selectedDifficult);
+  const questions = useSelector((state: RootState) => state.game.questions);
+  const currentQuestion = useSelector((state: RootState) => state.game.currentQuestionIndex);
 
   useEffect(() =>
   {
-    let query = BASE_URL
-    if (category) query += `&category=${category}`
-    console.log('category:', category)
-    if (difficulty && difficulty !== Difficulties.Any) query += `&difficulty=${difficulty}`
-    console.log('difficulty:', difficulty)
+    dispatch(resetGame())
 
-    console.log(query)
-    console.log(he)
-    setGameQuery(query)
+    let gameUrl = BASE_URL
+    if (category) gameUrl += `&category=${category}`
+    if (difficulty && difficulty !== Difficulties.Any) gameUrl += `&difficulty=${difficulty}`
 
-    axios.get(query)
+    setGameQuery(gameUrl)
+
+    axios.get(gameUrl)
       .then((res) =>
       {
-        console.log(res.data)
+        const decodedQuestions = res.data.results.map((q: Question) =>
+        {
+          return {
+            ...q,
+            question: he.decode(q.question),
+            correct_answer: he.decode(q.correct_answer),
+            incorrect_answers: q.incorrect_answers.map((a: string) => he.decode(a))
+          }
+        })
+
+        console.log(questions, currentQuestion)
+        dispatch(setQuestions(decodedQuestions))
         setIsLoaded(true)
-        setQuestions(res.data.results)
       })
       .catch((error) =>
       {
@@ -52,15 +65,8 @@ const Game: React.FC = () =>
         ? <div>
           <h1>Game</h1>
           {gameQuery}
-          {questions.map((question: Question, index: number) =>
-          {
-            return (
-              <div key={index}>
-                <h2>{he.decode(question.question)}</h2>
-                {he.decode(question.question)}
-              </div>
-            )
-          })}
+          <GameStatusPanel />
+          <CurrentQuestionPanel question={questions[currentQuestion]} />
         </div>
         : <div>
           loading questions...
