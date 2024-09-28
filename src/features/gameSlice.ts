@@ -6,12 +6,14 @@ interface GameState
   questions: Question[];
   currentQuestionIndex: number;
   answerHistory: (boolean | null)[];
+  gameEnd: boolean;
 }
 
 const initialState: GameState = {
   questions: [],
   currentQuestionIndex: 0,
   answerHistory: [null, null, null, null, null],
+  gameEnd: false
 };
 
 const gameSlice = createSlice({
@@ -22,12 +24,22 @@ const gameSlice = createSlice({
     {
       state.questions = action.payload;
     },
-    answerQuestion(state, action: PayloadAction<{ questionIndex: number, isCorrect: boolean }>)
+    answerQuestion(state, action: PayloadAction<{ answer: string }>)
     {
-      state.answerHistory[action.payload.questionIndex] = action.payload.isCorrect;
+      const currentQuestion = state.questions[state.currentQuestionIndex];
+      const isCorrect = action.payload.answer === currentQuestion.correct_answer;
+
+      state.answerHistory[state.currentQuestionIndex] = isCorrect;
+    },
+    nextQuestion(state)
+    {
       if (state.currentQuestionIndex < state.questions.length - 1)
       {
         state.currentQuestionIndex++;
+      }
+      else
+      {
+        state.gameEnd = true;
       }
     },
     resetGame(state)
@@ -35,9 +47,10 @@ const gameSlice = createSlice({
       state.questions = [];
       state.currentQuestionIndex = 0;
       state.answerHistory = [null, null, null, null, null];
+      state.gameEnd = false;
     }
   }
 });
 
-export const { setQuestions, answerQuestion, resetGame } = gameSlice.actions;
+export const { setQuestions, answerQuestion, nextQuestion, resetGame } = gameSlice.actions;
 export default gameSlice.reducer;

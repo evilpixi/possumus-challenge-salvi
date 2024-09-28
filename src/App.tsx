@@ -4,6 +4,7 @@ import Home from './pages/home'
 import About from './pages/about'
 import NotFound from './pages/notfound'
 import Game from './pages/game';
+import GameEnd from './pages/gameend';
 import './App.css'
 
 const App: React.FC = () =>
@@ -18,6 +19,7 @@ const App: React.FC = () =>
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/game" element={<Game />} />
+          <Route path="/gameend" element={<GameEnd />} />
         </Routes>
       </div>
     </BrowserRouter>

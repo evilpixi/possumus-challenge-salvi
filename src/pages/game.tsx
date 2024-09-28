@@ -49,7 +49,6 @@ const Game: React.FC = () =>
           }
         })
 
-        console.log(questions, currentQuestion)
         dispatch(setQuestions(decodedQuestions))
         setIsLoaded(true)
       })

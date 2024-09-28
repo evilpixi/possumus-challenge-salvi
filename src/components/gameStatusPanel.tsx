@@ -17,7 +17,6 @@ const QuestionIcon: React.FC<QuestionIconProps> = ({ qs }) =>
 const GameStatusPanel: React.FC = () =>
 {
   const questionsHistory = useSelector((state: RootState) => state.game.answerHistory);
-  console.log(questionsHistory);
 
   return (
     <div>
