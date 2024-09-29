@@ -5,6 +5,7 @@ import About from './pages/about'
 import NotFound from './pages/notfound'
 import Game from './pages/game';
 import GameEnd from './pages/gameend';
+import Contact from './pages/contact';
 import './App.css'
 
 const App: React.FC = () =>
@@ -17,9 +18,10 @@ const App: React.FC = () =>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/game" element={<Game />} />
           <Route path="/gameend" element={<GameEnd />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

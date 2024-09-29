@@ -13,6 +13,7 @@ body {
   --success-gradient: linear-gradient(180deg, rgb(28, 137, 16) 0%, rgb(13, 83, 10) 100%);
   --error-gradient: linear-gradient(180deg, rgb(219, 0, 0) 0%, rgb(135, 0, 0) 50%);
   --primary-gradient: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --title-gradient: linear-gradient(180deg, var(--light-color) 30%, var(--secondary-color) 100%);
 
   --title-font: 'bebas neue', sans-serif;
   --body-font: 'fredoka', sans-serif;

@@ -3,8 +3,19 @@
   color: var(--light-color);
   display: flex;
   flex-direction: column;
+
   background: repeating-linear-gradient(180deg, var(--dark-color) 0%, var(--bg-color) 100%);
   min-height: 100vh;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .centered-view {

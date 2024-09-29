@@ -1,0 +1,23 @@
+.about-page {
+  margin-top: 100px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.about-page li {
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+@media (orientation: landscape) {
+  .about-page {
+    margin-top: 0px;
+    width: 800px;
+  }
+}
