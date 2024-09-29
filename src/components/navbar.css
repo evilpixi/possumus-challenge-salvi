@@ -1,23 +1,28 @@
 .navbar {
-  background: linear-gradient(180deg, var(--bg-color) 0%, var(--dark-color) 100%);
+  background: var(--dark-color);
   overflow: hidden;
   display: flex;
+  justify-content: space-between;
   padding-left: 20px;
-  padding-right: 10px;
+  padding-right: 20px;
+  box-sizing: border-box;
   height: 48px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navbar-brand {
-  display: flex;
-  align-content: center;
-  flex-wrap: wrap;
-  font-weight: 600;
-  font-size: larger;
-  background: var(--secondary-color);
+  font-weight: 100;
+  font-size: x-large;
+  padding: 0px 20px 0px 20px;
+  font-family: var(--title-font);
+  background: var(--bg-color);
+  color: var(--light-color);
+  border: 0px;
+  cursor: pointer;
 }
 
 .navbar a {
@@ -28,16 +33,6 @@
   text-align: center;
   text-decoration: none;
   padding: 8px;
-}
-
-.navbar-brand a {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.navbar a:hover {
-  background-color: var(--primary-color);
-  color: black;
 }
 
 .navbar-menu {
@@ -58,4 +53,92 @@
 .navbar-item a {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.navbar-ham-menu {
+  display: none;
+}
+
+.hamburger-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: 700;
+  color: var(--dark-color);
+  background: var(--primary-gradient);
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 0 4px var(--dark-color);
+  transition: all 0.1s ease;
+}
+
+.hamburger-button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 6px var(--dark-color);
+  transform: translateY(-1px);
+}
+
+.hamburger-button:active {
+  filter: brightness(0.8) contrast(1.2);
+  background: var(--secondary-color);
+  box-shadow: 0 2px var(--dark-color);
+  transform: translateY(2px);
+}
+
+.menu-from-hamburger-button {
+  position: fixed;
+  top: 47px;
+  left: 0px;
+  width: 100%;
+  background-color: var(--dark-color);
+  margin: 0px;
+  padding: 10px 0px 10px 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-from-hamburger-button a {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (orientation: portrait) {
+  .navbar {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    white-space: nowrap;
+    height: 100%;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-item {
+    width: 100%;
+    justify-content: right;
+  }
+
+  .navbar-item a {
+    padding: 10px;
+    width: 100%;
+    text-align: right;
+  }
+
+  .navbar-ham-menu {
+    display: block;
+    padding: 10px;
+  }
 }

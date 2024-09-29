@@ -6,6 +6,10 @@ import CoolButton from '../components/coolButton';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetGame } from '../features/gameSlice';
+import Confetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize'
+import { setHomeStatus } from '../features/homeStatusSlice';
+import { HomeStatus } from '../enums/homeStatusEnum';
 
 // Home component
 const GameEnd: React.FC = () =>
@@ -15,12 +19,19 @@ const GameEnd: React.FC = () =>
   const score: number = history.filter((answer) => answer).length;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { width, height } = useWindowSize()
 
   const handlePlayAgain = () =>
   {
-    navigate('/');
     dispatch(resetGame());
-    console.log("reset game 3")
+    navigate('/game');
+  }
+
+  const handleGoHome = () =>
+  {
+    dispatch(resetGame());
+    dispatch(setHomeStatus(HomeStatus.SplashArt));
+    navigate('/');
   }
 
   return (
@@ -29,9 +40,15 @@ const GameEnd: React.FC = () =>
         gameEnded
           ? <div>
             <h1>Game Over!</h1>
-            you got a score of {score} of {history.length}
+            you got a score of {score} out of {history.length}
             <br />
+            <br /><br /><br />
             <CoolButton onClick={handlePlayAgain} text={'Play Again'} />
+            <CoolButton onClick={handleGoHome} text={'Go To Main Menu'} />
+            <Confetti
+              width={width}
+              height={height}
+            />
           </div>
           : "the game is not over yet"
       }

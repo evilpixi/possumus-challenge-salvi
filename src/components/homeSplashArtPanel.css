@@ -17,7 +17,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
   font-family: var(--title-font);
-  background: linear-gradient(180deg, var(--light-color) 30%, var(--secondary-color) 100%);
+  background: var(--title-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

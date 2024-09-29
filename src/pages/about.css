@@ -1,0 +1,45 @@
+.about-page {
+  margin-top: 60px;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.about-page h2 {
+  text-align: center;
+  margin: 23px 0px 8px 0px;
+}
+
+.about-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  gap: 12px;
+}
+
+.about-page a {
+  color: var(--primary-color);
+}
+
+.about-page li {
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+@media (orientation: landscape) {
+  .about-page {
+    width: 800px;
+  }
+}
