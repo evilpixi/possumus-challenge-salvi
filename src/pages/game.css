@@ -1,0 +1,122 @@
+.game-status-panel {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: var(--dark-color);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 48px;
+  font-size: small;
+}
+
+.game-status-panel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: xx-large;
+}
+
+.game-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-top: 220px;
+  box-sizing: border-box;
+  position: fixed;
+}
+
+.icon-correct {
+  filter: hue-rotate(200deg) saturate(1.5) contrast(150%);
+}
+
+.icon-bad {
+  filter: hue-rotate(250deg) saturate(8);
+}
+
+.question {
+  font-size: 1.5rem;
+  font-weight: 100;
+  font-family: var(--title-body);
+  padding: 40px;
+  height: 130px;
+}
+
+.current-question-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  box-sizing: border-box;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.next-button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.next-button {
+  background: var(--primary-gradient);
+  color: var(--dark-color);
+  border: 0px;
+  padding: 24px;
+  margin: 8px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+  font-size: xx-large;
+  font-family: var(--title-font);
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0 6px var(--dark-color);
+}
+
+@media (orientation: landscape) {
+  .game-status-panel {
+    border-radius: 40px;
+    width: 350px;
+    left: auto;
+    top: 60px;
+  }
+
+  .game-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .answer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .next-button {
+    width: 300px;
+  }
+}

@@ -4,15 +4,47 @@
   border: 0px;
   color: #495057;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 1.8vh;
+  letter-spacing: -0.7px;
   text-align: center;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-  font-family: 'fredoka', sans-serif;
-  box-shadow: 0 4px var(--dark-color);
+  font-family: var(--body-font);
+  box-shadow: 0 5px var(--dark-color);
 
   width: 30vw;
   height: 22vw;
-  padding: 10px;
+  padding: 6px;
   margin: 2px;
+  margin-bottom: 5px;
+  transition: all 0.1s ease;
+}
+
+.category-button:hover {
+  background: var(--primary-gradient);
+  color: var(--light-color);
+  box-shadow: 0 7px var(--dark-color);
+  transform: translateY(-3px);
+}
+
+.category-button:active {
+  filter: brightness(0.9);
+  box-shadow: 0 2px var(--dark-color);
+  transform: translateY(2px);
+}
+
+.category-button-all {
+  width: calc(90vw + 14px);
+  font-size: x-large;
+}
+
+@media (orientation: landscape) {
+  .category-button {
+    font-size: large;
+    width: 140px;
+    height: 140px;
+  }
+
+  .category-button-all {
+    width: 500px;
+  }
 }

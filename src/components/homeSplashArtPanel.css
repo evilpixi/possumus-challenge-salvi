@@ -16,7 +16,7 @@
   font-size: 8vh;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-family: 'bebas neue', sans-serif;
+  font-family: var(--title-font);
   background: linear-gradient(180deg, var(--light-color) 30%, var(--secondary-color) 100%);
   background-clip: text;
   -webkit-background-clip: text;

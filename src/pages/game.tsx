@@ -11,6 +11,8 @@ import { Question } from '../dto/question';
 import he from 'he';
 import gc from '../gameconfig';
 import { resetGame, setQuestions } from '../features/gameSlice';
+import './game.css';
+import '../App.css';
 
 const BASE_URL = `https://opentdb.com/api.php?amount=${gc.amount}&type=${gc.type}`;
 
@@ -19,7 +21,6 @@ const Game: React.FC = () =>
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const [gameQuery, setGameQuery] = useState(BASE_URL);
 
   const category = useSelector((state: RootState) => state.currentCategory.currentCategory);
   const difficulty = useSelector((state: RootState) => state.currentDifficulty.selectedDifficult);
@@ -33,8 +34,6 @@ const Game: React.FC = () =>
     let gameUrl = BASE_URL
     if (category) gameUrl += `&category=${category}`
     if (difficulty && difficulty !== Difficulties.Any) gameUrl += `&difficulty=${difficulty}`
-
-    setGameQuery(gameUrl)
 
     axios.get(gameUrl)
       .then((res) =>
@@ -59,16 +58,14 @@ const Game: React.FC = () =>
   }, [])
 
   return (
-    <div>
+    <div className='centered-view'>
       {isLoaded
-        ? <div>
-          <h1>Game</h1>
-          {gameQuery}
+        ? <div className='game-container'>
           <GameStatusPanel />
           <CurrentQuestionPanel question={questions[currentQuestion]} />
         </div>
-        : <div>
-          loading questions...
+        : <div className='centered-view'>
+          loading questions...<br /><br />
           <Loader />
         </div>}
     </div>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentCategory } from '../features/currentCategorySlice';
+import { setCurrentCategory, setCurrentCategoryName } from '../features/currentCategorySlice';
 import { setHomeStatus } from '../features/homeStatusSlice';
 import { HomeStatus } from '../enums/homeStatusEnum';
 import CategoryButton from './categoryButton';
 import './homeCategorySelectPanel.css';
+import '../App.css';
 
 interface CategoryListProps
 {
@@ -20,6 +21,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories }) =>
   const handleCategorySelect = (category: number | null) =>
   {
     dispatch(setCurrentCategory(category));
+    dispatch(setCurrentCategoryName(category === null ? 'All!' : categories.find((c) => c.id === category)!.name));
     dispatch(setHomeStatus(HomeStatus.DificultySelection));
   }
 
@@ -35,9 +37,13 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories }) =>
             onClick={() => handleCategorySelect(category.id)}
           />
         ))}
-        <div key={-1}>
-          <button onClick={() => handleCategorySelect(null)}>All!</button>
-        </div>
+
+        <CategoryButton
+          extraClass='category-button-all'
+          key={0}
+          text={'All!'}
+          onClick={() => handleCategorySelect(null)}
+        />
       </ul>
     </div >
   );

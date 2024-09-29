@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './answerButton.css';
 import { ButtonStatus } from '../enums/buttonStatus';
+import { useState } from 'react';
 
 const btnClasses = {
   correct: 'btn-correct',
@@ -16,18 +17,31 @@ interface AnswerButtonProps
   replied: boolean;
 }
 
-const AnswerButton: React.FC<AnswerButtonProps> = ({
-  label, onClick, status, replied
-}) =>
+const AnswerButton: React.FC<AnswerButtonProps> = ({ label, onClick, status, replied }) =>
 {
-  const className = btnClasses[status];
+  const [clicked, setClicked] = useState(false);
+  const className = `${btnClasses.default} ${btnClasses[status]} ${clicked ? 'btn-clicked' : ''}`;
+
+  useEffect(() =>
+  {
+    if (!replied) setClicked(false);
+  }, [replied]);
+
+  const handleClick = () =>
+  {
+    setClicked(true);
+    onClick();
+  };
+
   return (
-    <button onClick={onClick}
+    <button onClick={handleClick}
       className={className}
       disabled={replied}>
       {label}
     </button>
   );
 };
+
+
 
 export default AnswerButton;

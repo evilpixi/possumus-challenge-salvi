@@ -3,10 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface CategoryState
 {
   currentCategory: number | null;
+  currentCategoryName: string | null;
 }
 
 const initialState: CategoryState = {
   currentCategory: null,
+  currentCategoryName: null,
 };
 
 
@@ -18,9 +20,13 @@ const currentCategorySlice = createSlice({
     {
       console.log("setCurrentCategory", action.payload);
       state.currentCategory = action.payload;
+    },
+    setCurrentCategoryName: (state, action: PayloadAction<string | null>) =>
+    {
+      state.currentCategoryName = action.payload;
     }
   },
 });
 
-export const { setCurrentCategory } = currentCategorySlice.actions;
+export const { setCurrentCategory, setCurrentCategoryName } = currentCategorySlice.actions;
 export default currentCategorySlice.reducer;

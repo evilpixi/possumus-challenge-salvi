@@ -13,7 +13,7 @@ const Home: React.FC = () =>
 {
   const homeStatus = useSelector((state: RootState) => state.homeStatus.homeStatus);
 
-  return (< div className="view">
+  return (<>
     {
       homeStatus === HomeStatus.SplashArt &&
       <HomeSplashArtPanel />
@@ -28,7 +28,7 @@ const Home: React.FC = () =>
       homeStatus === HomeStatus.DificultySelection &&
       <DificultySelectionPanel />
     }
-  </div >)
+  </>)
 };
 
 export default Home;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Question } from '../dto/question';
 import AnswersContainer from './answersContainer';
+import '../pages/game.css';
+import '../App.css';
 
 interface CurrentQuestionPanelProps
 {
@@ -9,11 +11,12 @@ interface CurrentQuestionPanelProps
 
 const CurrentQuestionPanel: React.FC<CurrentQuestionPanelProps> = ({ question }) =>
 {
-  console.log(question);
   return (
     <div className="current-question-panel">
 
-      {question.question}
+      <span className="question">
+        {question.question}
+      </span>
       <AnswersContainer question={question} />
     </div>
   );

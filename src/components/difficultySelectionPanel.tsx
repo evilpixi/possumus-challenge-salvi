@@ -2,16 +2,20 @@ import React from 'react';
 import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Difficulties } from '../enums/difficulties';
-import { setDifficulty } from '../features/difficultySlice';
 import { setHomeStatus } from '../features/homeStatusSlice';
 import { HomeStatus } from '../enums/homeStatusEnum';
 import { useNavigate } from 'react-router-dom';
+import HomeControlPanel from './homeControlPanel';
+import DifficultyButton from './difficultyButton';
+import '../App.css';
+import './difficultySelectionPanel.css';
 
 
 const DifficultySelectionPanel: React.FC = () =>
 {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const category = useSelector((state: RootState) => state.currentCategory);
 
   const difficulty = useSelector((state: RootState) => state.currentDifficulty.selectedDifficult);
 
@@ -25,24 +29,28 @@ const DifficultySelectionPanel: React.FC = () =>
     navigate('/game');
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
-  {
-    dispatch(setDifficulty(e.target.value as Difficulties));
-  };
-
   return (
-    <div>
-      <label htmlFor="difficulty-select">Select Difficulty: </label>
-      <select id="difficulty-select" value={difficulty} onChange={handleChange}>
-        <option value={Difficulties.Easy}>Easy</option>
-        <option value={Difficulties.Medium}>Medium</option>
-        <option value={Difficulties.Hard}>Hard</option>
-        <option value={Difficulties.Any}>Any!</option>
-      </select>
+    <div className='difficulty-panel'>
+      <h2 className='title'>Choose a difficulty</h2>
+      <p>Selected category:</p>
+      <p>{category.currentCategoryName}</p>
+
+      <div className="difficulty-buttons-container">
+        <div className="main-difficulty-buttons-container">
+          <DifficultyButton difficulty={Difficulties.Easy} />
+          <DifficultyButton difficulty={Difficulties.Medium} />
+          <DifficultyButton difficulty={Difficulties.Hard} />
+        </div>
+        <DifficultyButton difficulty={Difficulties.Any} />
+      </div>
       <p>Selected Difficulty: {difficulty}</p>
 
-      <button onClick={handleGoBack}>BACK</button>
-      <button onClick={handlePlay}>PLAY</button>
+      <HomeControlPanel
+        showBack={true}
+        onBack={handleGoBack}
+        showNext={true}
+        onNext={handlePlay}
+        nextText={`Play on ${difficulty} Difficulty`} />
     </div>
   );
 };

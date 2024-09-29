@@ -6,6 +6,7 @@ import AnswerButton from './answerButton';
 import { ButtonStatus } from '../enums/buttonStatus';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store';
+import '../pages/game.css';
 
 interface AnswersContainerProps
 {
@@ -65,7 +66,7 @@ const AnswersContainer: React.FC<AnswersContainerProps> = ({ question }) =>
   }, [gameEnd, navigate]);
 
   return (
-    <div>
+    <div className='answer-container'>
       {shuffledAnswers.map((answer, index) =>
       {
         let status: ButtonStatus = ButtonStatus.Default;
@@ -82,9 +83,9 @@ const AnswersContainer: React.FC<AnswersContainerProps> = ({ question }) =>
         }
 
         return (
-          <div key={index}>
+          <div key={index} className='answer-container'>
             <AnswerButton
-              label={(index + 1) + ". " + answer}
+              label={answer}
               status={status} // Envía el estado actual del botón
               onClick={() => handleCheckAnswer(answer)}
               replied={replied}
@@ -93,7 +94,9 @@ const AnswersContainer: React.FC<AnswersContainerProps> = ({ question }) =>
         );
       })}
 
-      {replied && <button onClick={handleNext}>Next</button>}
+      {replied && <div className='next-button-container'>
+        <button className='next-button' onClick={handleNext}>Next</button>
+      </div>}
     </div>
   );
 };

@@ -1,0 +1,64 @@
+.difficulty-panel {
+  font-family: var(--body-font);
+  font-weight: 100;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.difficulty-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+@media (orientation: landscape) {
+  .difficulty-buttons-container {
+    max-width: 600px;
+    justify-content: center;
+  }
+}
+
+.main-difficulty-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-diff {
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 40%);
+  font-family: var(--title-font);
+  border: none;
+  color: var(--dark-color);
+  padding: 16px;
+  text-align: center;
+  font-size: x-large;
+  margin: 8px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 8px var(--dark-color);
+  width: 100%;
+  transform: translateY(-6px);
+}
+
+.btn-diff:hover {
+  filter: brightness(1.2);
+}
+
+.selected {
+  background: var(--bg-color);
+  box-shadow: 0 2px var(--dark-color);
+  transform: translate(0px);
+  color: white;
+  transition: all 0.1s ease;
+}
+
+.selected:hover {
+  filter: brightness(1);
+}
