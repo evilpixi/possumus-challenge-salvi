@@ -5,7 +5,7 @@ import './about.css';
 const About: React.FC = () =>
 {
   return (
-    <div className='centered-view'>
+    <div className='about-page-container'>
       <div className='about-page'>
         <h1>About Pixi Trivia</h1>
 
@@ -27,7 +27,18 @@ const About: React.FC = () =>
           <li><strong>Learn While Having Fun</strong>: Not only do you get to test your knowledge, but you also learn new things along the way.</li>
         </ul>
 
-        <p>Are you ready to take on the challenge? Play Pixi Trivia today and see how many answers you can get right!</p>
+        <h2>Technologies Used</h2>
+        <ul className="tech-list">
+          <li>React</li>
+          <li>Redux</li>
+          <li>TypeScript</li>
+          <li>Plain CSS</li>
+          <li>Git+Vercel</li>
+        </ul>
+
+        <h2>Trivia API</h2>
+        We use the Open Trivia Database API to fetch trivia questions. For more information, visit the API documentation at:
+        <a href='https://opentdb.com/api_config.php'>https://opentdb.com/api_config.php</a>
       </div>
     </div>
   );

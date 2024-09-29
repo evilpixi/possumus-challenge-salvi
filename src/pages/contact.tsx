@@ -5,7 +5,7 @@ import './contact.css';
 const Contact: React.FC = () =>
 {
   return (
-    <div className='centered-view'>
+    <div className='contact-info-container'>
       <div className='contact-info'>
         <h1>Contact Me</h1>
 

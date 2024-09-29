@@ -1,33 +1,84 @@
-# React + TypeScript + Vite
+# Pixi Trivia App
 
-connect to
-[https://opentdb.com/api_config.php](https://opentdb.com/api_config.php)
+Welcome to the **Pixi Trivia App**! This is a trivia game built using modern web technologies like **React**, **Redux**, **TypeScript**, and **Plain CSS**. The game allows users to select categories and difficulties, answer multiple-choice questions, and view results.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Technologies](#technologies)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Contact](#contact)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
 
-## Expanding the ESLint configuration
+This project was built using:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**
+- **Redux**
+- **TypeScript**
+- **Plain CSS**
+- **Vite** for bundling
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Category Selection**: Choose from different trivia categories.
+- **Difficulty Levels**: Set the difficulty (Easy, Medium, Hard, Any).
+- **Responsive UI**: Fully responsive design with CSS styling.
+- **State Management**: Global state management using Redux.
+- **Multiple-choice Questions**: Displays random shuffled answers with feedback on correct/incorrect responses.
+- **Animated Results**: Correct answers turn green, and incorrect ones turn red.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/evilpixi/possumus-challenge-salvi.git
+    ```
+
+2. **Navigate to the project folder**:
+
+    ```bash
+    cd pixi-trivia
+    ```
+
+3. **Install dependencies**:
+
+    ```bash
+    npm install
+    ```
+
+4. **Run the development server**:
+
+    ```bash
+    npm run dev
+    ```
+
+    This will start the app on `http://localhost:5173`.
+
+## Available Scripts
+
+In the project, you can run the following scripts:
+
+- **`npm run dev`**: Starts the development server using **Vite** at `http://localhost:5173`.
+
+- **`npm run devlocal`**: Similar to `npm run dev`, but starts the development server accessible via your local network (useful for testing on other devices within the same network).
+
+- **`npm run build`**: Compiles the TypeScript files and creates a production-ready bundle with **Vite**.
+
+- **`npm run lint`**: Runs **ESLint** on the project to check for code issues, including any unused directives. It will throw an error if there are any warnings or linting issues.
+
+- **`npm run preview`**: Builds the project and serves a local preview of the production build, allowing you to test the output before deployment.
+
+## Contact
+
+Hi! I'm Tati, but on the internet, people know me as **Pixi**. I'm a developer and a nerd!
+
+### Connect with me:
+
+- **GitHub**: [https://github.com/evilpixi](https://github.com/evilpixi)
+- **LinkedIn**: [https://www.linkedin.com/in/ngsalvi/](https://www.linkedin.com/in/ngsalvi/)
+- **Discord**: `evilpixi`

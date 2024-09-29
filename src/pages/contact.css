@@ -4,9 +4,17 @@
   image-rendering: pixelated;
 }
 
+.contact-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
 .contact-info {
   padding-left: 16px;
   padding-right: 16px;
+  margin-top: 60px;
 }
 
 i {
