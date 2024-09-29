@@ -20,7 +20,7 @@ const GameEnd: React.FC = () =>
   {
     navigate('/');
     dispatch(resetGame());
-    console.log("reset game")
+    console.log("reset game 2")
   }
 
   return (
