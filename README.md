@@ -42,7 +42,7 @@ To get started with this project, follow these steps:
 2. **Navigate to the project folder**:
 
     ```bash
-    cd pixi-trivia
+    cd possumus-challenge-salvi
     ```
 
 3. **Install dependencies**:
@@ -74,7 +74,7 @@ In the project, you can run the following scripts:
 - **`npm run preview`**: Builds the project and serves a local preview of the production build, allowing you to test the output before deployment.
 
 ## Contact
-
+![Profile Picture](./public/images/pfp.png)
 Hi! I'm Tati, but on the internet, people know me as **Pixi**. I'm a developer and a nerd!
 
 ### Connect with me:
